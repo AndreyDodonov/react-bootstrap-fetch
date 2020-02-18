@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './styles/main.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import Header from "./components/Header";
@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 
 
 class App extends Component {
+
     constructor() {
         super();
         this.state = {
@@ -20,24 +21,32 @@ class App extends Component {
 
     componentDidMount() {
         /**
+         * content: весь json
+         * isLoad: флаг для лоадера
          * titleLeft : о нас
          * titleRight : важно знать
          * paragraphRight : Абсолютная погрешность ...
+         * paragraphLeft: Структурный голод столь ... + Закон, согласно ...
+         * galleryTitle: Галерея
+         *
          */
         fetch('./db.json')
             .then(response => response.json())
             .then(data => {
-                console.log(data.components[1].metadata.components[0].metadata);
+                console.log(data.components[0].metadata.title);
                 this.setState({
                     content: data,
+                    isLoad: false,
                     titleLeft: data.components[1].metadata.components[0].metadata.title,
                     titleRight: data.components[1].metadata.components[1].metadata.title,
                     paragraphRight: data.components[1].metadata.components[1].metadata.text,
                     paragraphLeft: data.components[1].metadata.components[0].metadata.text,
-                    isLoad: false
+                    galleryTitle: data.components[0].metadata.title,
+
                 })
             })
-    }
+    };
+
 
     render() {
         return (
@@ -45,7 +54,9 @@ class App extends Component {
                 <Header/>
                 <main>
 
-                    <Slider/>
+                    <Slider
+                        galleryTitle={this.state.galleryTitle}
+                    />
                     <Text
                      title_left={this.state.titleLeft}
                      title_right={this.state.titleRight}
@@ -54,9 +65,6 @@ class App extends Component {
                     >
 
                     </Text>
-
-
-
                     <BackForm/>
                 </main>
                 <Footer/>

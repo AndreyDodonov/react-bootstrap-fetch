@@ -5,11 +5,11 @@ import img3 from '../images/img3.jpg';
 import arrow from '../images/svg/arrow.svg';
 import round from '../images/svg/round.svg';
 
-const Slider = () => {
+const Slider = props => {
     return (
 
             <div className="slider">
-                <h1>Галерея</h1>
+                <h1>{props.galleryTitle}</h1>
                 <div className="slider__gallery">
                     <img className="slider__gallery-image" src={img1} alt="image1"/>
                     <img className="slider__gallery-image" src={img2} alt="image1"/>

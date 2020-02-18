@@ -3,7 +3,27 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+/* montserrat-regular - cyrillic_latin */
 @import "fonts.css";
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/montserrat-v14-cyrillic_latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local("Montserrat Regular"), local("Montserrat-Regular"), url("./fonts/montserrat-v14-cyrillic_latin-regular.eot?#iefix") format("embedded-opentype"), url("./fonts/montserrat-v14-cyrillic_latin-regular.woff2") format("woff2"), url("./fonts/montserrat-v14-cyrillic_latin-regular.woff") format("woff"), url("./fonts/montserrat-v14-cyrillic_latin-regular.ttf") format("truetype"), url("./fonts/montserrat-v14-cyrillic_latin-regular.svg#Montserrat") format("svg");
+  /* Legacy iOS */
+}
+/* montserrat-600 - cyrillic_latin */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  src: url("./fonts/montserrat-v14-cyrillic_latin-600.eot");
+  /* IE9 Compat Modes */
+  src: local("Montserrat SemiBold"), local("Montserrat-SemiBold"), url("./fonts/montserrat-v14-cyrillic_latin-600.eot?#iefix") format("embedded-opentype"), url("./fonts/montserrat-v14-cyrillic_latin-600.woff2") format("woff2"), url("./fonts/montserrat-v14-cyrillic_latin-600.woff") format("woff"), url("./fonts/montserrat-v14-cyrillic_latin-600.ttf") format("truetype"), url("./fonts/montserrat-v14-cyrillic_latin-600.svg#Montserrat") format("svg");
+  /* Legacy iOS */
+}
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -9924,13 +9944,15 @@ h3 {
     border-color: #dee2e6;
   }
 }
-body {
-  font-family: "Montserrat", serif;
+body, html {
+  font-family: Montserrat, serif;
   font-style: normal;
-  font-weight: 400;
 }
 
 .header {
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: 400;
   max-width: 1280px;
   height: 70px;
   box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.25);
@@ -9948,6 +9970,9 @@ body {
   margin: 40px auto;
 }
 .slider h1 {
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: 400;
   font-weight: 600;
   font-size: 32px;
   line-height: 39px;
@@ -9984,6 +10009,9 @@ body {
 }
 
 .text {
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: 400;
   max-width: 1140px;
   margin: 0 auto 24px;
   display: flex;
@@ -9991,6 +10019,9 @@ body {
 }
 
 .text__header {
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: 400;
   font-weight: 600;
   font-size: 24px;
   line-height: 29px;
@@ -10006,13 +10037,17 @@ body {
   width: 526px;
 }
 
-.text__paragraph {
+.text__paragraph p {
   font-size: 14px;
   line-height: 140%;
   color: #000;
+  font-family: "Montserrat", serif;
 }
 
 .back-form {
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: 400;
   max-width: 1140px;
   margin: 24px auto 64px;
 }
