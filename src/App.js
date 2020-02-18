@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './styles/main.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -10,41 +10,36 @@ import BackForm from "./components/BackForm";
 import Footer from "./components/Footer";
 
 
+class App extends Component {
+    constructor() {
+        super();
+        this.state = {};
+    }
 
-function App() {
+    componentDidMount() {
+        fetch('./db.json')
+            .then(response => response.json())
+            .then(data => console.log(data))
+    }
 
-    const getData = () => {
-        return fetch('./page.json')
-            .then((response) => {
-                if (response.ok) {
-                    return console.log(response.json())
-                } else {
-                    throw new Error('Данные не были получены, ошибка: ' + response.status);
-                }
-            })
-            .then((data) => {
-                return data;
-            })
-            .catch((err) => {
-                console.warn(err);
-                // можно вывести сообщение об ошибке ...
-            });
-    };
-    getData();
+    render() {
+        return (
+            <div>
 
-  return (
+                <Header/>
+                <main>
+                    <Slider/>
+                    <Text/>
+                    <BackForm/>
+                </main>
+                <Footer/>
+            </div>
+        )
+}
 
-    <div>
 
-      <Header/>
-      <main>
-          <Slider/>
-          <Text/>
-          <BackForm/>
-      </main>
-      <Footer/>
-    </div>
-  );
+
+
 }
 
 export default App;
