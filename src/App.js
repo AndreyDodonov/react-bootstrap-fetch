@@ -13,31 +13,56 @@ import Footer from "./components/Footer";
 class App extends Component {
     constructor() {
         super();
-        this.state = {};
+        this.state = {
+            content: {}
+        };
     }
 
     componentDidMount() {
+        /**
+         * titleLeft : о нас
+         * titleRight : важно знать
+         * paragraphRight : Абсолютная погрешность ...
+         */
         fetch('./db.json')
             .then(response => response.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data.components[1].metadata.components[0].metadata);
+                this.setState({
+                    content: data,
+                    titleLeft: data.components[1].metadata.components[0].metadata.title,
+                    titleRight: data.components[1].metadata.components[1].metadata.title,
+                    paragraphRight: data.components[1].metadata.components[1].metadata.text,
+                    paragraphLeft: data.components[1].metadata.components[0].metadata.text,
+                    isLoad: false
+                })
+            })
     }
 
     render() {
         return (
             <div>
-
                 <Header/>
                 <main>
+
                     <Slider/>
-                    <Text/>
+                    <Text
+                     title_left={this.state.titleLeft}
+                     title_right={this.state.titleRight}
+                     paragraphRight={this.state.paragraphRight}
+                     paragraphLeft={this.state.paragraphLeft}
+                    >
+
+                    </Text>
+
+
+
                     <BackForm/>
                 </main>
                 <Footer/>
             </div>
         )
-}
-
-
+    }
 
 
 }
