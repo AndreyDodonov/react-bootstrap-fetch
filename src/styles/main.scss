@@ -1,0 +1,148 @@
+@import "reset";
+@import "fonts.css";
+@import "colors.scss";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+
+body {
+  font-family: 'Montserrat', serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+
+// HEADER
+.header {
+  max-width: 1280px;
+  height: 70px;
+  box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.25);
+
+  h1 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: $dark-grey;
+    padding: 25px 70px;
+  }
+}
+
+// SLIDER
+
+.slider {
+  max-width: 1140px;
+  margin: 40px auto;
+
+  h1 {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 39px;
+    color: $dark-grey;
+  }
+}
+
+.slider__gallery {
+  margin-top: 24px;
+
+  img {
+    width: 364px;
+    height: 243px;
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.slider__buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+
+  img {
+    cursor: pointer;
+  }
+}
+
+.slider__buttons__arrow-right {
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+.slider__buttons__rounds {
+  img {
+    margin-right: 24px;
+  }
+}
+
+// TEXT
+
+.text {
+  max-width: 1140px;
+  margin: 0 auto 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text__header {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  margin-bottom: 12px;
+  color: $dark-grey;
+}
+
+.text__left {
+  width: 526px;
+}
+
+.text__right {
+  width: 526px;
+}
+
+.text__paragraph {
+  font-size: 14px;
+  line-height: 140%;
+  color: #000;
+}
+
+// FORM
+
+.back-form {
+  max-width: 1140px;
+  margin: 24px auto 64px;
+
+}
+
+.form{
+  padding: 0;
+  width: 394px;
+}
+
+.custom-button {
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  border-radius: 3px;
+  border: none;
+  background: $gradient;
+}
+
+.custom-label {
+  font-family: Montserrat, serif;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  color: $dark-grey;
+}
+
+
+// FOOTER
+
+.footer {
+  width: 1280px;
+  height: 200px;
+  background-color: $dark-grey;
+}
+
+
