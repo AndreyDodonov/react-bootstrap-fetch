@@ -28,12 +28,13 @@ class App extends Component {
          * paragraphRight : Абсолютная погрешность ...
          * paragraphLeft: Структурный голод столь ... + Закон, согласно ...
          * galleryTitle: Галерея
+         * images : массив с ссылками на фото
          *
          */
         fetch('./db.json')
             .then(response => response.json())
             .then(data => {
-                console.log(data.components[0].metadata.title);
+                console.log(data.components[0].metadata.images);
                 this.setState({
                     content: data,
                     isLoad: false,
@@ -42,20 +43,20 @@ class App extends Component {
                     paragraphRight: data.components[1].metadata.components[1].metadata.text,
                     paragraphLeft: data.components[1].metadata.components[0].metadata.text,
                     galleryTitle: data.components[0].metadata.title,
-
+                    images: data.components[0].metadata.images
                 })
             })
-    };
 
+    };
 
     render() {
         return (
             <div>
                 <Header/>
                 <main>
-
                     <Slider
                         galleryTitle={this.state.galleryTitle}
+                        data={this.state.images}
                     />
                     <Text
                      title_left={this.state.titleLeft}

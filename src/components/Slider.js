@@ -1,70 +1,76 @@
-import React, {useState} from "react";
+import React, {Component} from "react";
 import img1 from '../images/img1.jpg';
 import img2 from '../images/img2.jpg';
 import img3 from '../images/img3.jpg';
 import arrow from '../images/svg/arrow.svg';
 import round from '../images/svg/round.svg';
-import {Carousel} from "react-bootstrap";
+// import {Carousel} from "react-bootstrap";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
-const Slider = props => {
+const responsive = {
+    desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 3,
+        slidesToSlide: 3, // optional, default to 1.
+    },
+    tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 2,
+        slidesToSlide: 2, // optional, default to 1.
+    },
+    mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 1,
+        slidesToSlide: 1, // optional, default to 1.
+    },
+};
 
-    function ControlledCarousel() {
-        const [index, setIndex] = useState(0);
 
-        const handleSelect = (selectedIndex, e) => {
-            setIndex(selectedIndex);
-        };
+class Slider extends Component {
 
-        return (
-            <Carousel activeIndex={index} onSelect={handleSelect} >
-                <Carousel.Item>
-                    <img
-                        className="d-block w-30"
-                        src={img1}
-                        alt="First slide"
-                    />
-                    <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-30"
-                        src={img2}
-                        alt="Second slide"
-                    />
+    state = {
+        loading: false,
+        data: []
+    };
 
-                    <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-30"
-                        src={img3}
-                        alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                        </p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
-        );
+    componentDidMount() {
+        fetch('../db.json')
+            .then(response => response.json())
+            .then(data => {
+                console.log('data ', data.components[0].metadata.images[1]);
+                this.setState({
+                    content: data,
+                    isLoad: false,
+                    data: data.components[0].metadata.images
+                })
+            });
     }
 
-
-    return (
+    render () {
+        return (
 
             <div className="slider">
-                <h1>{props.galleryTitle}</h1>
+                <h1>{this.props.galleryTitle}</h1>
                 <div className="slider__gallery">
-                    <ControlledCarousel />
+                    {/*start*/}
+                    {console.log('img ', this.props)}
+                    <Carousel responsive={responsive}>
+                        {this.state.data.map((post, indx) => {
+                            return (
+                                <div className="card text-left mt-5" key={indx}>
+                                    {console.log('post ', post)}
+                                    <img
+                                        style={{ height: "100px" }}
+                                        src={post}
+                                        alt="Alt text"
+                                    />
+                                </div>
+                            );
+                        })}
+                    </Carousel>
+
+                    {/*end*/}
                 </div>
                 <div className="slider__buttons">
                     <img src={arrow} alt="arrow left"/>
@@ -77,7 +83,10 @@ const Slider = props => {
                 </div>
             </div>
 
-    )
-};
+        )
+
+    }
+
+}
 
 export default Slider;
