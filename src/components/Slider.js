@@ -4,7 +4,6 @@ import img2 from '../images/img2.jpg';
 import img3 from '../images/img3.jpg';
 import arrow from '../images/svg/arrow.svg';
 import round from '../images/svg/round.svg';
-// import {Carousel} from "react-bootstrap";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -53,15 +52,21 @@ class Slider extends Component {
             <div className="slider">
                 <h1>{this.props.galleryTitle}</h1>
                 <div className="slider__gallery">
-                    {/*start*/}
-                    {console.log('img ', this.props)}
-                    <Carousel responsive={responsive}>
-                        {this.state.data.map((post, indx) => {
+                    {/*start */}
+
+                    <Carousel
+                        responsive={responsive}
+                        renderButtonGroupOutside={true}
+
+                        showDots={true}
+                        swipeable
+                        removeArrowOnDeviceType={["tablet", "mobile"]}
+                    >
+                        {this.state.data.map((post, idx) => {
                             return (
-                                <div className="card text-left mt-5" key={indx}>
-                                    {console.log('post ', post)}
+                                <div  key={idx}>
                                     <img
-                                        style={{ height: "100px" }}
+                                        className="slider__gallery-image"
                                         src={post}
                                         alt="Alt text"
                                     />

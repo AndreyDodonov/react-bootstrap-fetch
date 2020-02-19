@@ -4,8 +4,14 @@
     "metadata": {
       "title": "Галерея",
       "images": [
-        "url/to/img1.jpg", "url/to/img2.jpg", "url/to/img3.jpg", "url/to/img4.jpg",
-        "url/to/img5.jpg", "url/to/img6.jpg", "url/to/img7.jpg", "url/to/img8.jpg"
+        "https://images.unsplash.com/photo-1558364774-b6a53ef599f0?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjEyMDd9",
+        "https://images.unsplash.com/photo-1570784753812-4d34c91e063b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1561420482-5f8e0035f102?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjEyMDd9",
+        "https://avatars.mds.yandex.net/get-pdb/245485/b3063aea-b50f-4556-a50d-7131d86ebf7a/s1200?webp=false",
+        "https://www.tokkoro.com/picsup/5210963-city-skyscraper-cityscape-street-night-motion-blur-light-dark-traffic-light-trail-light-streak-black-grey-orange-road-long-exposure-glow-cmvision-award-unsplash-award-public-domain-images.jpg",
+        "https://img.theculturetrip.com/1440x807/wp-content/uploads/2016/10/photo-1461783818807-74d54914743e.jpg",
+        "https://mtdata.ru/u17/photoBDFC/20222611931-0/original.jpg",
+        "https://images.unsplash.com/photo-1533499962-bb35160a9032?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjEyMDd9"
       ],
       "slidesPerView": 3
     }
