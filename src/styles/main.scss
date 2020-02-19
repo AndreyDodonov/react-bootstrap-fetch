@@ -73,10 +73,10 @@ body, html {
 }
 
 .slider__buttons {
+  visibility: hidden;
   display: flex;
   justify-content: space-between;
   margin-top: 24px;
-
   img {
     cursor: pointer;
   }
@@ -140,7 +140,7 @@ body, html {
 
 .form{
   padding: 0;
-  width: 394px;
+  width: 364px;
 }
 
 .custom-button {
@@ -159,6 +159,11 @@ body, html {
   font-size: 12px;
   line-height: 15px;
   color: $dark-grey;
+}
+
+.custom-checkbox {
+  margin-right: 10px;
+
 }
 
 

@@ -1,12 +1,10 @@
 import React, {Component} from "react";
-import img1 from '../images/img1.jpg';
-import img2 from '../images/img2.jpg';
-import img3 from '../images/img3.jpg';
 import arrow from '../images/svg/arrow.svg';
 import round from '../images/svg/round.svg';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
+// параметры для слайдера
 const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
@@ -25,19 +23,17 @@ const responsive = {
     },
 };
 
-
 class Slider extends Component {
-
     state = {
         loading: false,
         data: []
     };
-
     componentDidMount() {
+
         fetch('../db.json')
             .then(response => response.json())
             .then(data => {
-                console.log('data ', data.components[0].metadata.images[1]);
+                // console.log('data ', data.components[0].metadata.images[1]);
                 this.setState({
                     content: data,
                     isLoad: false,
@@ -48,8 +44,7 @@ class Slider extends Component {
 
     render () {
         return (
-
-            <div className="slider">
+            <div className="slider col-md-11">
                 <h1>{this.props.galleryTitle}</h1>
                 <div className="slider__gallery">
                     {/*start */}
@@ -57,7 +52,6 @@ class Slider extends Component {
                     <Carousel
                         responsive={responsive}
                         renderButtonGroupOutside={true}
-
                         showDots={true}
                         swipeable
                         removeArrowOnDeviceType={["tablet", "mobile"]}
@@ -78,6 +72,7 @@ class Slider extends Component {
                     {/*end*/}
                 </div>
                 <div className="slider__buttons">
+                    {/*TODO: после настройки кастомных стрелок и точек слайдера убрать visibility: hidden*/}
                     <img src={arrow} alt="arrow left"/>
                     <div className="slider__buttons__rounds">
                         <img src={round} alt="round"/>
@@ -87,9 +82,7 @@ class Slider extends Component {
                     <img className="slider__buttons__arrow-right" src={arrow} alt="arrow right"/>
                 </div>
             </div>
-
         )
-
     }
 
 }
